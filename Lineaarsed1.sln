@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Lineaarsed1", "Lineaarsed1.pyproj", "{1A1F1329-0391-4E6A-B587-EC9A1DA727BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A1F1329-0391-4E6A-B587-EC9A1DA727BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1F1329-0391-4E6A-B587-EC9A1DA727BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15E3CF20-F166-43AA-8DF0-EB0540AF5BAF}
+	EndGlobalSection
+EndGlobal
