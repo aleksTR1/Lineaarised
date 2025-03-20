@@ -27,7 +27,9 @@
     <Compile Include="Tund1.3.py" />
     <Compile Include="Tund2.1.py" />
     <Compile Include="Tund2.2.py" />
+    <Compile Include="Tund2.3.py" />
     <Compile Include="Tund3.2.py" />
+    <Compile Include="Tund3.py" />
     <Compile Include="Tund4.5.py" />
   </ItemGroup>
   <ItemGroup>
