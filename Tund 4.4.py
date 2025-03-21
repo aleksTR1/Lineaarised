@@ -18,18 +18,18 @@ print(numbrid)
 print(sorted([-5,10,-3,8,-2],key=abs))
 
 # 8
-sonad = ['kass', 'koer', 'jänes']
+sonad=['kass','koer','jänes']
 max_length = max(len(s) for s in sonad) 
 for i in range(len(sonad)):
     while len(sonad[i]) < max_length:
         sonad[i] += '_'
-print(sonad)
+print(sõnad)
 
 #11
-n = int(input("Sisesta arv: "))
-letters = "abcdefghijklmnopqrstuvwxyz" 
+n=int(input("Sisesta arv:"))
+letters="abcdefghijklmnopqrstuvwxyz" 
 for i in range(n):
-    print(letters[i] * (i + 1))
+    print(letters[i]*(i + 1))
 
 
 
