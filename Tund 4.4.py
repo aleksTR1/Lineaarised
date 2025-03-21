@@ -18,8 +18,8 @@ print(sorted([-5,10,-3,8,-2],key=abs))
 
 # 8
 sonad=['kass','koer','jänes']
-max_length=max(len(s)for s in sonad)
-for i in range(len(sonad)):while len(sonad[i])<max_length:sonad[i]+='_'
+max_length=max(len(s)for s in sõnad)
+for i in range(len(sonad)):while len(sõnad[i])<max_length:sõnad[i]+='_'
 print(sonad)
 
 
