@@ -22,10 +22,6 @@ max_length=max(len(s)for s in sonad)
 for i in range(len(sonad)):while len(sonad[i])<max_length:sonad[i]+='_'
 print(sonad)
 
-# 11
-n=int(input("Sisesta arv:"))
-letters="abcdefghijklmnopqrstuvwxyz"
-for i in range(n):print(letters[i]*(i+1))
 
 
 
