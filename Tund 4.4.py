@@ -1,31 +1,27 @@
-#Tˆˆ 4.4
+T√∂√∂ 4.4
 
-# 3
-# for arv in [18,19,32,45,60,12]: print('*'*arv)
+#3
+for arv in [18,19,32,45,60,12]: print('*'*arv)
 
-# # 5
-# loend=[1,2,3,4,5,6]
-# n=int(input("Mitu elementi vahetada?"))
-# for i in range(n):loend[i], loend[-(i+1)] = loend[-(i+1)],loend[i]
-# print(loend)
+# 5
+loend=[1,2,3,4,5,6]
+n=int(input("Mitu elementi vahetada?"))
+for i in range(n):loend[i], loend[-(i+1)] = loend[-(i+1)],loend[i]
+print(loend)
 
-# # 6
-# numbrid=[10,25,8,50,13]
-# numbrid[numbrid.index(max(numbrid))] /= len(numbrid)
-# print(numbrid)
+# 6
+numbrid=[10,25,8,50,13]
+numbrid[numbrid.index(max(numbrid))] /= len(numbrid)
+print(numbrid)
 
-# # 7
-# print(sorted([-5,10,-3,8,-2],key=abs))
+# 7
+print(sorted([-5,10,-3,8,-2],key=abs))
 
-# # 8
-# sonad=['kass','koer','j‰nes']
-# print([s.ljust(max(map(len,sonad)),'_') for s in sonad])
+# 8
+sonad=['kass','koer','j√§nes']
+print([s.ljust(max(map(len,sonad)),'_') for s in sonad])
 
-# # 11
-# import string
-# print([c*(i+1) for i,c in enumerate(string.ascii_lowercase[:int(input("Sisesta arv: "))])])
-
-#n‰idis
+#n√§idis
 # #append
 # elemendid=[]
 # for i in range(5):
@@ -34,8 +30,8 @@
 # for e in elemendid:
 #     print(e)
 # #extend
-# list_sıne.extend(elemendid)
-# print(list_sıne)
+# list_s√µne.extend(elemendid)
+# print(list_s√µne)
 # print(elemendid)
 # #insert
 # elemendid.insert(0,"A")
@@ -48,26 +44,26 @@
 # elemendid.pop()
 # print(elemendid)
 # #index
-# ind=list_sıne.index("r")
-# print(f"t‰ht r on {ind}-indeksiga")
+# ind=list_s√µne.index("r")
+# print(f"t√§ht r on {ind}-indeksiga")
 # #count
-# k=list_sıne.count("r")
-# print(list_sıne)
+# k=list_s√µne.count("r")
+# print(list_s√µne)
 # #reverse
-# list_sıne.reverse()
-# print(list_sıne)
+# list_s√µne.reverse()
+# print(list_s√µne)
 # #copy
-# list_sıne2=list_sıne.copy()
-# list_sıne2=clear()
-# print(list_sıne2)
+# list_s√µne2=list_s√µne.copy()
+# list_s√µne2=clear()
+# print(list_s√µne2)
 
 #1
 # from string import digits, punctuation
-# vokaali=["a","e","u","o","i","¸","ˆ","ı","‰"]
+# vokaali=["a","e","u","o","i","√º","√∂","√µ","√§"]
 # konsonanti="qwrtpsdfghklzxcvbnmj"
 # numbrid=digits
-# m‰rkid=punctuation
-# tekst=input("sisend (sına vıi lause): "). lower()
+# m√§rkid=punctuation
+# tekst=input("sisend (s√µna v√µi lause): "). lower()
 # tekst_list=list(tekst)
 # for s in tekst_list:
 #     if s in vokaali:
@@ -76,7 +72,7 @@
 #         k+=1
 #     elif s in numbrid:
 #         n+=1
-#     elif s in m‰rkid:
+#     elif s in m√§rkid:
 #          m+=1
 #     elif s==" ":
 #          t+=1
