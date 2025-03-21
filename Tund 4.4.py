@@ -17,7 +17,7 @@ print(numbrid)
 print(sorted([-5,10,-3,8,-2],key=abs))
 
 # 8
-sonad=['kass','koer','jänes']
+sõnad=['kass','koer','jänes']
 max_length=max(len(s)for s in sõnad)
 for i in range(len(sõnad)):while len(sõnad[i])<max_length:sõnad[i]+='_'
 print(sõnad)
