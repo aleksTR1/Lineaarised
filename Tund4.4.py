@@ -72,41 +72,72 @@ print("Muudetud loend:",numbrid)
 numbrid=[7,-4,9,-2,5]
 numbrid.sort(key=abs)
 print("Sorteeritud nimekiri absoluutväärtuse järgi:",numbrid)
+#-----------------------------------------------------------------
 
-#näidis
-# #append
-# elemendid=[]
-# for i in range(5):
-#     elemendid.append(input(f"{i+1}. element:"))
-# print(elemendid)
-# for e in elemendid:
-#     print(e)
-# #extend
-# list_sõne.extend(elemendid)
-# print(list_sõne)
-# print(elemendid)
-# #insert
-# elemendid.insert(0,"A")
-# print(elemendid)
-# #remove
-# elemendid.remove("A")
-# print(elemendid)
-# #pop
-# elemendid.pop(0)
-# elemendid.pop()
-# print(elemendid)
-# #index
-# ind=list_sõne.index("r")
-# print(f"täht r on {ind}-indeksiga")
-# #count
-# k=list_sõne.count("r")
-# print(list_sõne)
-# #reverse
-# list_sõne.reverse()
-# print(list_sõne)
-# #copy
-# list_sõne2=list_sõne.copy()
-# list_sõne2=clear()
-# print(list_sõne2)
+#3
+numbrid = [15, 17, 32, 44, 60]  # Список чисел, определяющих количество звёздочек в строке
+for number in numbrid:  # Цикл for перебирает каждый элемент списка
+    print('*' * number)  # Оператор * умножает строку на число, создавая строку из звёздочек
+
+# #3 Рисует строки из звёздочек
+numbrid=[15,17,32,44,60] # Список чисел
+for number in numbrid: print('*'*number) # Умножаем строку "*" на число
+
+# #4 Проверка почтового индекса и региона
+postiindeks=input("Sisestage Eesti postiindeks (5 numbrit): ") # Ввод индекса
+if len(postiindeks)==5 and postiindeks.isdigit(): # Проверка длины и цифр
+    esimene_number=int(postiindeks[0]) # Первая цифра индекса
+    if esimene_number==1: maakond="Tallinn"
+    elif esimene_number==2: maakond="Narva, Narva-Jõesuu"
+    elif esimene_number==3: maakond="Kohtla-Järve"
+    elif esimene_number==4: maakond="Ida-Virumaa, Lääne-Virumaa, Jõgevamaa"
+    elif esimene_number==5: maakond="Tartu"
+    elif esimene_number==6: maakond="Tartumaa, Põlvamaa, Võrumaa, Valgamaa"
+    elif esimene_number==7: maakond="Viljandimaa, Järvamaa, Harjumaa, Raplamaa"
+    elif esimene_number==8: maakond="Pärnumaa"
+    elif esimene_number==9: maakond="Läänemaa, Hiiumaa, Saaremaa"
+    print("Osta jööge kodus!" if esimene_number in [1,2,3] else "Kandke maski!")
+    print(f"Postiindeks kuulub piirkonda: {maakond}")
+else: print("Vigane postiindeks, palun sisestage 5 numbrit.")
+
+# #5 Обмен первых и последних элементов
+loend=[1,2,3,4,5] # Исходный список
+vahetamise_arv=int(input("Sisesta, mitu esimest ja viimast elementi vahetada:")) # Ввод количества замен
+for i in range(vahetamise_arv): loend[i],loend[-(i+1)]=loend[-(i+1)],loend[i] # Меняем местами элементы
+print("Muudetud loend:",loend)
+
+# #6 Замена максимального элемента его частным от длины списка
+numbrid=[5,8,13,7,20] # Исходный список
+max_number=max(numbrid) # Максимальное число
+numbrid[numbrid.index(max_number)]=max_number/len(numbrid) # Замена числа
+print("Muudetud loend:",numbrid)
+
+# #7 Сортировка списка по абсолютному значению
+numbrid=[7,-4,9,-2,5] # Исходный список
+numbrid.sort(key=abs) # Сортировка по модулю
+print("Sorteeritud nimekiri absoluutväärtuse järgi:",numbrid)
+
+#append(value) – добавляет элемент в конец списка.
+#insert(index, value) – вставляет элемент в список по указанному индексу.
+#pop(index) – удаляет и возвращает элемент по индексу (по умолчанию последний).
+#remove(value) – удаляет первое вхождение указанного элемента.
+#clear() – полностью очищает список.
+#copy() – создаёт копию списка.
+#reverse() – переворачивает список в обратном порядке.
+#sort() – сортирует список по возрастанию (или убыванию, если указать reverse=True).
+#max(iterable) – возвращает наибольшее значение в последовательности.
+#index(value) – возвращает индекс первого вхождения элемента в списке.
+#input(prompt) – получает ввод от пользователя.
+#len(obj) – возвращает длину объекта (списка, строки и т. д.).
+#isdigit() – проверяет, состоит ли строка только из цифр.
+#f"{variable}" – форматированные строки для вставки переменных.
+#int(value) – преобразует строку в целое число.
+#abs(value) – возвращает модуль числа.
+#if-elif-else – условный оператор для ветвления кода.
+#for item in iterable: – цикл, перебирающий элементы списка.
+#range(start, stop, step) – создаёт последовательность чисел.
+
+
+
 
 
