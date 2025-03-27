@@ -1,15 +1,16 @@
 #1
+from random import randint
 def arithmetic(arv1:float,arv2:float,tehe:str)-> any:
-    """Funktsioon töötab nagu lihtne kalkulaator
+    """Funktsioon tÃ¶Ã¶tab nagu lihtne kalkulaator
     + - liitmine
     - - lahutamine
     * - korrutamine
     / - jagamine
-    Kui sisend ei ole järjendis[+,-,/,*],siis tagastab sõne "Tundmatu tehe"
-    :param float arv1: Sisenud ujukomaarvu tüübina
-    :param float arv2: Sisenud ujukomaarvu tüübina
+    Kui sisend ei ole jÃ¤rjendis[+,-,/,*],siis tagastab sÃµne "Tundmatu tehe"
+    :param float arv1: Sisenud ujukomaarvu tÃ¼Ã¼bina
+    :param float arv2: Sisenud ujukomaarvu tÃ¼Ã¼bina
     :param str tehe: Sisenud listist [+,-,/,*]
-    :rtype: varMääramata tüüp (float või str)
+    :rtype: varMÃ¤Ã¤ramata tÃ¼Ã¼p (float vÃµi str)
     """
     if tehe in ["+","-","*","/"]:
         if arv2==0 and tehe=="/":
@@ -25,7 +26,7 @@ def is_year_leap(aasta:int)->bool:
     """Liigaasta leidmine
     Tagastab True, kui aasta on liigaasta ja False kui aasta on tavaline aasta
     :param int aasta: Sisenud kasutajalt
-    :rtype: bool tõeväärsuses formaadis tulemus
+    :rtype: bool tÃµevÃ¤Ã¤rsuses formaadis tulemus
     """
     if aasta%4==0:
         v=True
@@ -34,15 +35,15 @@ def is_year_leap(aasta:int)->bool:
     return v
 
 #3
-def square(külg:float)->any:
+def square(kÃ¼lg:float)->any:
     """Kirjutage funksioon
-    Tagastab True, kui külg on liigaasta ja False kui külg on tavaline
-    :param float külg: Sisenud kasutajalt
-    :rtype: any tõeväärsuses formaadis tulemus
+    Tagastab True, kui kÃ¼lg on liigaasta ja False kui kÃ¼lg on tavaline
+    :param float kÃ¼lg: Sisenud kasutajalt
+    :rtype: any tÃµevÃ¤Ã¤rsuses formaadis tulemus
     """
-    S=külg**2
-    P=4*külg
-    D=(2)**(1/2)*külg
+    S=kÃ¼lg**2
+    P=4*kÃ¼lg
+    D=(2)**(1/2)*kÃ¼lg
     return S,P,D
 
 #4
@@ -68,9 +69,40 @@ def bank(summa:float, aastad:int)->float:
     Tagastab True,
     :param float summa: Sisenud kasutajalt
     :param int aastad: Sisenud kasutajalt
-    :rtype: varMääramata tüüp (float või int)
+    :rtype: varMÃ¤Ã¤ramata tÃ¼Ã¼p (float vÃµi int)
     """
     for aasta in range(aastad):
         summa*=1.1
     return summa
+
+#6
+def is_prime(a=randint(1,10000))->bool:
+    """
+    liigaasta leidmine
+    tagastab true, kui aasta on liigasta ja false kui aasta on tavaline aasta
+    :param int aasta:sisenud kasutajalt
+    :rtype: bool tÃµevÃ¤Ã¤rsuses formaadis tulemus
+    """
+    print(a)
+    v=True
+    for jagaja in range(2,a):
+        if a%jagaja==0:
+            v=False
+    return v
+
+#7
+def date(pÃ¤ev:int,kuu:int,aasta:int)->bool:
+    """
+    """
+    if pÃ¤ev in range(1,32) and kuu in[1,3,5,7,8,10,12] and aasta>0:
+        v=True
+    elif pÃ¤ev in range(1,30) and kuu==2 and is_year_leap(aasta):
+        v=True
+    elif pÃ¤ev in range(1,29) and kuu==2 and not is_year_leap(aasta):
+        v=True
+    elif pÃ¤ev in range(1,31) and kuu in [4,6,9,11] and aasta>0:
+        v=True
+    else:
+        v=False
+    return v
 
