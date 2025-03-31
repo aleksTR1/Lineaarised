@@ -134,6 +134,20 @@ print("Sorteeritud nimekiri absoluutväärtuse järgi:",numbrid)
 #for item in iterable: – цикл, перебирающий элементы списка.
 #range(start, stop, step) – создаёт последовательность чисел.
 
+õpilased=[]  
+for i in range(7):
+    nimi=input(f"Sisestage{i+1}.õpilase nimi: ")  
+    õpilased.append(nimi)  
+
+print("Õpilaste nimekiri:", õpilased)
+
+for i in range(5):
+    rnimi=input("what nimi to remove?")
+    if rnimi in õpilased:
+       õpilased.remove(rnimi)
+print(õpilased)
+
+
 
 
 
