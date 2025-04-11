@@ -4,8 +4,8 @@ def kool():
     for i in range(int(input())):
         opilased.append(input())
         puudumised.append(int(input()))
-    for o, p in zip(opilased, puudumised):
-        print(o, p)
+    for i in range(len(opilased)):
+        print(opilased[i], puudumised[i])
 
 #3
 def linnad():
@@ -13,8 +13,8 @@ def linnad():
     for i in range(int(input())):
         linnad.append(input())
         elanikud.append(int(input()))
-    for l, e in zip(linnad, elanikud):
-        print(l, e)
+    for i in range(len(linnad)):
+        print(linnad[i], elanikud[i])
 
 #4
 def pood():
@@ -22,8 +22,8 @@ def pood():
     for i in range(int(input())):
         tooted.append(input())
         hinnad.append(float(input()))
-    for t, h in zip(tooted, hinnad):
-        print(t, h)
+    for i in range(len(tooted)):
+        print(tooted[i], hinnad[i])
 
 #6
 def sisseastumine():
@@ -31,7 +31,7 @@ def sisseastumine():
     for i in range(int(input())):
         abiturientide.append(input())
         ballid.append(int(input()))
-    for a, b in zip(abiturientide, ballid):
-        print(a, b)
+    for i in range(len(abiturientide)):
+        print(abiturientide[i], ballid[i])
 
 
