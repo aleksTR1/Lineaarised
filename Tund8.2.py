@@ -1,64 +1,39 @@
-import ssl
-import imghdr
-import smtplib
-from tkinter import *
-from tkinter import filedialog, messagebox
-from email.message import EmailMessage
-
-aken = Tk()
-aken.title("E-kirja saatmine")
-aken.geometry("400x400")
-
-fail = ""
+import tkinter as tk
+from tkinter import filedialog
 
 def vali_fail():
-    global fail
     fail = filedialog.askopenfilename()
-    fail_label.config(text=fail)
+    manus_entry.delete(0, tk.END)
+    manus_entry.insert(0, fail)
 
-def saada_kiri():
-    saajad = email_box.get().split(",")
-    sisu = kiri_box.get("1.0", END)
+aken = tk.Tk()
+aken.title("E-kirja saatmine")
+aken.geometry("540x420")
+aken.configure(bg="#2e8b57")
 
-    server = "smtp.gmail.com"
-    port = 587
-    saatja = "sinu.email@gmail.com"
-    parool = "rakenduse_võti"
+font1 = ("Arial", 11)
 
-    msg = EmailMessage()
-    msg.set_content(sisu)
-    msg['Subject'] = "E-kiri"
-    msg['From'] = saatja
-    msg['To'] = ", ".join(saajad)
+tk.Label(aken, text="Email:", bg="#2e8b57", fg="white", font=font1).grid(row=0, column=0, padx=10, pady=5, sticky="e")
+tk.Label(aken, text="Nimi:", bg="#2e8b57", fg="white", font=font1).grid(row=1, column=0, padx=10, pady=5, sticky="e")
+tk.Label(aken, text="Telefon:", bg="#2e8b57", fg="white", font=font1).grid(row=2, column=0, padx=10, pady=5, sticky="e")
+tk.Label(aken, text="Teema:", bg="#2e8b57", fg="white", font=font1).grid(row=3, column=0, padx=10, pady=5, sticky="e")
+tk.Label(aken, text="Lisa fail:", bg="#2e8b57", fg="white", font=font1).grid(row=4, column=0, padx=10, pady=5, sticky="e")
+tk.Label(aken, text="Kiri:", bg="#2e8b57", fg="white", font=font1).grid(row=5, column=0, padx=10, pady=5, sticky="ne")
 
-    if fail:
-        with open(fail, 'rb') as f:
-            andmed = f.read()
-            msg.add_attachment(andmed, maintype='image',
-                               subtype=imghdr.what(None, andmed),
-                               filename=fail.split("/")[-1])
+email_entry = tk.Entry(aken, width=40, font=font1)
+nimi_entry = tk.Entry(aken, width=40, font=font1)
+telefon_entry = tk.Entry(aken, width=40, font=font1)
+teema_entry = tk.Entry(aken, width=40, font=font1)
+manus_entry = tk.Entry(aken, width=30, font=font1)
+kiri_text = tk.Text(aken, width=40, height=8, font=font1)
 
-    try:
-        with smtplib.SMTP(server, port) as s:
-            s.starttls(context=ssl.create_default_context())
-            s.login(saatja, parool)
-            s.send_message(msg)
-        messagebox.showinfo("OK", "Kiri saadetud")
-    except Exception as e:
-        messagebox.showerror("Viga", str(e))
+email_entry.grid(row=0, column=1, padx=5, pady=5)
+nimi_entry.grid(row=1, column=1, padx=5, pady=5)
+telefon_entry.grid(row=2, column=1, padx=5, pady=5)
+teema_entry.grid(row=3, column=1, padx=5, pady=5)
+manus_entry.grid(row=4, column=1, padx=5, pady=5, sticky="w")
+kiri_text.grid(row=5, column=1, padx=5, pady=5)
 
-Label(aken, text="Saaja (komadega):").pack()
-email_box = Entry(aken, width=40)
-email_box.pack()
-
-Label(aken, text="Sõnum:").pack()
-kiri_box = Text(aken, width=45, height=10)
-kiri_box.pack()
-
-Button(aken, text="Vali fail", command=vali_fail).pack(pady=5)
-fail_label = Label(aken, text="")
-fail_label.pack()
-
-Button(aken, text="Saada", command=saada_kiri).pack(pady=10)
+tk.Button(aken, text="Vali fail", command=vali_fail, font=font1, bg="white").grid(row=4, column=1, sticky="e", padx=5)
 
 aken.mainloop()
