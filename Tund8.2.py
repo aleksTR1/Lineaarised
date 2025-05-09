@@ -1,48 +1,64 @@
-import numpy as np
-import matplotlib.pyplot as plt
+import ssl
+import imghdr
+import smtplib
+from tkinter import *
+from tkinter import filedialog, messagebox
+from email.message import EmailMessage
 
-# Loeme andmed failist
-maed_nimed = []
-maed_korgused = []
+aken = Tk()
+aken.title("E-kirja saatmine")
+aken.geometry("400x400")
 
-with open('maed.txt', 'r', encoding='utf-8') as f:
-    for line in f:
-        nimi, korgus = line.rsplit(' ', 1)
-        maed_nimed.append(nimi)
-        maed_korgused.append(int(korgus.strip()))
+fail = ""
 
-# Numpy massiiv
-korgused_np = np.array(maed_korgused)
+def vali_fail():
+    global fail
+    fail = filedialog.askopenfilename()
+    fail_label.config(text=fail)
 
-# Statistika
-keskmine = np.mean(korgused_np)
-max_korgus = np.max(korgused_np)
-min_korgus = np.min(korgused_np)
-summa = np.sum(korgused_np)
+def saada_kiri():
+    saajad = email_box.get().split(",")
+    sisu = kiri_box.get("1.0", END)
 
-# Kõrgeim ja madalaim mägi
-korgeim_magi = maed_nimed[np.argmax(korgused_np)]
-madalaim_magi = maed_nimed[np.argmin(korgused_np)]
+    server = "smtp.gmail.com"
+    port = 587
+    saatja = "sinu.email@gmail.com"
+    parool = "rakenduse_võti"
 
-# Kuvame tulemused
-print(f"Keskmine kõrgus: {keskmine:.2f} m")
-print(f"Kõrgeim mägi: {korgeim_magi} ({max_korgus} m)")
-print(f"Madalaim mägi: {madalaim_magi} ({min_korgus} m)")
-print(f"Kogukõrgus: {summa} m")
+    msg = EmailMessage()
+    msg.set_content(sisu)
+    msg['Subject'] = "E-kiri"
+    msg['From'] = saatja
+    msg['To'] = ", ".join(saajad)
 
-# Sorteerime andmed kahanevalt
-sorted_indices = np.argsort(korgused_np)[::-1]
-sorted_names = [maed_nimed[i] for i in sorted_indices]
-sorted_heights = korgused_np[sorted_indices]
+    if fail:
+        with open(fail, 'rb') as f:
+            andmed = f.read()
+            msg.add_attachment(andmed, maintype='image',
+                               subtype=imghdr.what(None, andmed),
+                               filename=fail.split("/")[-1])
 
-# Joonistame graafiku
-plt.figure(figsize=(10, 6))
-plt.bar(sorted_names, sorted_heights, color='skyblue')
-plt.xlabel('Mäed')
-plt.ylabel('Kõrgus (m)')
-plt.title('Maailma kõrgeimad mäed')
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.savefig('maed_graafik.png')
-plt.show()
+    try:
+        with smtplib.SMTP(server, port) as s:
+            s.starttls(context=ssl.create_default_context())
+            s.login(saatja, parool)
+            s.send_message(msg)
+        messagebox.showinfo("OK", "Kiri saadetud")
+    except Exception as e:
+        messagebox.showerror("Viga", str(e))
 
+Label(aken, text="Saaja (komadega):").pack()
+email_box = Entry(aken, width=40)
+email_box.pack()
+
+Label(aken, text="Sõnum:").pack()
+kiri_box = Text(aken, width=45, height=10)
+kiri_box.pack()
+
+Button(aken, text="Vali fail", command=vali_fail).pack(pady=5)
+fail_label = Label(aken, text="")
+fail_label.pack()
+
+Button(aken, text="Saada", command=saada_kiri).pack(pady=10)
+
+aken.mainloop()
